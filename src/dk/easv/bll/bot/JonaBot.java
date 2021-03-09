@@ -20,9 +20,6 @@ public class JonaBot implements IBot {
         MID, MID_RIGHT, LOWER_LEFT, LOWER_MID, LOWER_RIGHT
     }
 
-    ;
-
-
     private static final String BOTNAME = "JonaBot";
     // Moves {row, col} in order of preferences. {0, 0} at top-left corner
     // Prefered moves when center field is available
@@ -49,16 +46,9 @@ public class JonaBot implements IBot {
     public IMove doMove(IGameState state) {
 
 
-        System.out.println("avail moves: " + (state.getField().getAvailableMoves().size() - state.getMoveNumber()));
-
         if (state.getRoundNumber() == 0) {
             myId = setMyId(state);
         }
-
-
-        // TODO if center is not full  -> conquerCenterStrat
-        // TODO else -> conquerCornerStrat
-        // TODO + isMoveSafe
 
 
         if (state.getField().getMacroboard()[1][1].equals(IField.AVAILABLE_FIELD)) {
