@@ -121,84 +121,6 @@ public class JonaBot implements IBot {
         return myId;
     }
 
-    private void checkForWinningMove(IGameState state) {
-        String[][] board = state.getField().getBoard();
-
-        int d = -1, e = -1, f = -1;
-        MicroBoard currentMicroBoard = getCurrentMicroBoard(state);
-
-        switch (currentMicroBoard) {
-            case UPPER_LEFT -> {
-                d = 0;
-                e = 0;
-                f = e + 3;
-                break;
-            }
-            case UPPER_MID -> {
-                d = 3;
-                e = 0;
-                f = e + 3;
-                break;
-            }
-            case UPPER_RIGHT -> {
-                d = 6;
-                e = 0;
-                f = e + 3;
-                break;
-            }
-            case MID_LEFT -> {
-                d = 0;
-                e = 3;
-                f = e + 3;
-                break;
-            }
-            case MID -> {
-                d = 3;
-                e = 3;
-                f = e + 3;
-                break;
-            }
-            case MID_RIGHT -> {
-                d = 6;
-                e = 3;
-                f = e + 3;
-                break;
-            }
-            case LOWER_LEFT -> {
-                d = 0;
-                e = 6;
-                f = e + 3;
-                break;
-            }
-            case LOWER_MID -> {
-                d = 3;
-                e = 6;
-                f = e + 3;
-                break;
-            }
-            case LOWER_RIGHT -> {
-                d = 6;
-                e = 6;
-                f = e + 3;
-                break;
-            }
-        }
-
-        for (int i = d; i < d + 3; i++) {
-            for (int j = e; j < f; j++) {
-
-                System.out.print(board[j][i]);
-                if (j == 2) {
-                    System.out.println("");
-                }
-                if (j == 2 && i == 2) {
-                    System.out.println("---");
-                }
-            }
-
-        }
-
-    }
 
 
     public MicroBoard getCurrentMicroBoard(IGameState state) {
@@ -348,78 +270,7 @@ public class JonaBot implements IBot {
         return currentMicroBoard;
 
     }
-
-
-    public void getFieldStatus(IGameState state) {
-
-        int d = -1, e = -1, f = -1;
-        MicroBoard currentMicroBoard = getCurrentMicroBoard(state);
-
-        switch (currentMicroBoard) {
-            case UPPER_LEFT -> {
-                d = 0;
-                e = 0;
-                f = e + 3;
-                break;
-            }
-            case UPPER_MID -> {
-                d = 3;
-                e = 0;
-                f = e + 3;
-                break;
-            }
-            case UPPER_RIGHT -> {
-                d = 6;
-                e = 0;
-                f = e + 3;
-                break;
-            }
-            case MID_LEFT -> {
-                d = 0;
-                e = 3;
-                f = e + 3;
-                break;
-            }
-            case MID -> {
-                d = 3;
-                e = 3;
-                f = e + 3;
-                break;
-            }
-            case MID_RIGHT -> {
-                d = 6;
-                e = 3;
-                f = e + 3;
-                break;
-            }
-            case LOWER_LEFT -> {
-                d = 0;
-                e = 6;
-                f = e + 3;
-                break;
-            }
-            case LOWER_MID -> {
-                d = 3;
-                e = 6;
-                f = e + 3;
-                break;
-            }
-            case LOWER_RIGHT -> {
-                d = 6;
-                e = 6;
-                f = e + 3;
-                break;
-            }
-        }
-
-        for (int i = d; d < d + 3; d++) {
-            for (int j = e; j < f; j++) {
-                System.out.print(state.getField().getBoard()[i][j]);
-            }
-            System.out.println();
-        }
-
-    }
+    
 
     public IMove getWinningMove(IGameState state) {
         List<IMove> moves = state.getField().getAvailableMoves();
@@ -428,7 +279,6 @@ public class JonaBot implements IBot {
             tempState[move.getX()][move.getY()] = String.valueOf(getMyId());
             if (GameManager.isWin(tempState, move, String.valueOf(getMyId()))) {
                 return move;
-                //System.out.println("Winning move available!");
             }
         }
         return null;
