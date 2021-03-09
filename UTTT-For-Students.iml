@@ -7,9 +7,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="org.openjfx:javafx-fxml:12-ea+6" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="de.jensd:fontawesomefx-controls:11.0" level="project" />
     <orderEntry type="library" name="com.jfoenix:jfoenix:9.0.10" level="project" />
-    <orderEntry type="library" name="de.jensd:fontawesomefx-commons:9.1.2" level="project" />
+    <orderEntry type="library" name="de.jensd:fontawesomefx-commons:11.0" level="project" />
     <orderEntry type="library" name="de.jensd:fontawesomefx-fontawesome:4.7.0-9.1.2" level="project" />
+    <orderEntry type="library" name="de.jensd:fontawesomefx-materialdesignfont:2.0.26-9.1.2" level="project" />
   </component>
 </module>

@@ -27,6 +27,7 @@ public class LocalPrioritisedListBot implements IBot {
     @Override
     public IMove doMove(IGameState state) {
 
+
         //Find macroboard to play in
         for (int[] move : preferredMoves)
         {
